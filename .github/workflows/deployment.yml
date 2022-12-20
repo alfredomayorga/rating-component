@@ -1,0 +1,65 @@
+name: testing-push
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Load and cache deps
+        uses: ./.github/actions/cached-deps
+      - name: Run linter
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: lint
+      - name: Cypress run
+        uses: cypress-io/github-action@v4.2.0 # use the explicit version number
+        with:
+          build: yarn build
+          start: yarn start
+  build:
+    needs: tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Load and cache deps
+        uses: ./.github/actions/cached-deps
+      - name: Run install
+        if: steps.yarn-cache-dir-path.outputs.dir != true
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
+      - name: Build the app
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: build
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: news-homepage-image
+          path: |
+            .next
+            public
+            package.json
+            next.config.js
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: news-homepage-image
+      - name: Output contents
+        run: ls
+      - name: Deploy
+        run: echo "Deploying..."
