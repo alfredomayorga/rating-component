@@ -1,4 +1,6 @@
 import HeroText from '../components/HeroText'
+import RatingMeter from '../components/RatingMeter'
+import Button from '../components/Button'
 export default function Home() {
   return (
     <div 
@@ -13,6 +15,8 @@ export default function Home() {
       <div 
         className="
           flex
+          flex-col
+          gap-6
           justify-center
           items-center
           max-w-[412px]
@@ -22,6 +26,8 @@ export default function Home() {
         "
       >
         <HeroText />
+        <RatingMeter />
+        <Button />
       </div>
     </div>
   )
