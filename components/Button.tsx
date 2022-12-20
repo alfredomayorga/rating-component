@@ -1,5 +1,4 @@
-function Button() {
-  return(
+function Button() { return(
   <button 
     className="
       bg-orange 

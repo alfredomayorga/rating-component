@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -11,7 +11,7 @@ module.exports = {
       'light-grey': "#969FAD",
       'medium-grey': '#7C8798',
       white: '#ffffff',
-      'very-dark-blue': "#131518",
+      'very-dark-blue': "#131518"
     },
     extend: {},
   },

@@ -513,8 +513,25 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
 .flex {
   display: flex;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-\[45px\] {
@@ -525,12 +542,24 @@ video {
   height: 42px;
 }
 
+.h-\[40px\] {
+  height: 40px;
+}
+
 .w-full {
   width: 100%;
 }
 
 .w-\[42px\] {
   width: 42px;
+}
+
+.w-\[40px\] {
+  width: 40px;
+}
+
+.max-w-\[412px\] {
+  max-width: 412px;
 }
 
 .flex-row {
@@ -549,8 +578,17 @@ video {
   justify-content: space-between;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
+}
+
+.bg-dark-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 46 56 / var(--tw-bg-opacity));
 }
 
 .bg-orange {
@@ -558,9 +596,44 @@ video {
   background-color: rgb(252 118 20 / var(--tw-bg-opacity));
 }
 
-.bg-dark-blue {
+.bg-medium-grey {
   --tw-bg-opacity: 1;
-  background-color: rgb(38 46 56 / var(--tw-bg-opacity));
+  background-color: rgb(124 135 152 / var(--tw-bg-opacity));
+}
+
+.bg-light-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(150 159 173 / var(--tw-bg-opacity));
+}
+
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-t {
+  background-image: linear-gradient(to top, var(--tw-gradient-stops));
+}
+
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-\[\#232A34\] {
+  --tw-gradient-from: #232A34;
+  --tw-gradient-to: rgb(35 42 52 / 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-\[\#181E27\] {
+  --tw-gradient-to: #181E27;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.text-\[24px\] {
+  font-size: 24px;
 }
 
 .text-white {
@@ -573,37 +646,23 @@ video {
   color: rgb(124 135 152 / var(--tw-text-opacity));
 }
 
+.text-light-grey {
+  --tw-text-opacity: 1;
+  color: rgb(150 159 173 / var(--tw-text-opacity));
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  background-color: #131518;
+  height: 100vh;
 }
 
 * {
   box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-
-  body {
-    color: white;
-    background: black;
-  }
-}
-
-.hover\:bg-orange:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 118 20 / var(--tw-bg-opacity));
 }
 
 .hover\:bg-light-grey:hover {
@@ -624,4 +683,9 @@ a {
   .lg\:w-\[51px\] {
     width: 51px;
   }
+
+  .lg\:text-\[28px\] {
+    font-size: 28px;
+  }
 }
+
