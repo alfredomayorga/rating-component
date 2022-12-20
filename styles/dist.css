@@ -521,8 +521,20 @@ video {
   height: 45px;
 }
 
+.h-\[42px\] {
+  height: 42px;
+}
+
 .w-full {
   width: 100%;
+}
+
+.w-\[42px\] {
+  width: 42px;
+}
+
+.flex-row {
+  flex-direction: row;
 }
 
 .items-center {
@@ -531,6 +543,10 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
 }
 
 .rounded-full {
@@ -542,9 +558,19 @@ video {
   background-color: rgb(252 118 20 / var(--tw-bg-opacity));
 }
 
+.bg-dark-blue {
+  --tw-bg-opacity: 1;
+  background-color: rgb(38 46 56 / var(--tw-bg-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-medium-grey {
+  --tw-text-opacity: 1;
+  color: rgb(124 135 152 / var(--tw-text-opacity));
 }
 
 html,
@@ -572,5 +598,30 @@ a {
   body {
     color: white;
     background: black;
+  }
+}
+
+.hover\:bg-orange:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 118 20 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-light-grey:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(150 159 173 / var(--tw-bg-opacity));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 1024px) {
+  .lg\:h-\[51px\] {
+    height: 51px;
+  }
+
+  .lg\:w-\[51px\] {
+    width: 51px;
   }
 }
