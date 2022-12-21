@@ -1,6 +1,4 @@
-import HeroText from '../components/HeroText'
-import RatingMeter from '../components/RatingMeter'
-import Button from '../components/Button'
+import Content from '../components/Content'
 export default function Home() {
   return (
     <div 
@@ -25,9 +23,7 @@ export default function Home() {
           rounded-lg
         "
       >
-        <HeroText />
-        <RatingMeter />
-        <Button />
+        <Content />
       </div>
     </div>
   )

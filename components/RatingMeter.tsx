@@ -1,7 +1,19 @@
-function RatingMeter() {
-  const ratings = [1,2,3,4,5]
-  return(
-    <div 
+'use client'
+
+import { useState } from 'react'
+import { useSelectedRating } from '../hooks/useSelectedRating'
+interface RatingMeterProps {
+  setRatingSelected: (ratingSelected: boolean)=> void
+}
+export type Rating = {
+  meter: number
+  active: boolean
+}
+
+function RatingMeter({setRatingSelected}: RatingMeterProps) {
+  const { setSelectedRating, ratings } = useSelectedRating()
+  return (
+    <div
       className="
         flex 
         flex-row
@@ -10,10 +22,18 @@ function RatingMeter() {
         w-full
       "
     >
-      {ratings.map(rating=> {
-        return(
+      {ratings.map((rating: Rating, index: number) => {
+        return (
           <button
-            key={rating}
+            key={rating.meter}
+            onClick={() => {
+              setSelectedRating(rating.meter)
+              setRatingSelected(true)
+            }}
+            style={{
+              backgroundColor: rating.active === true ? "#FC7614" : '',
+              color: 'white'
+            }}
             className="
               rounded-full
               bg-dark-blue
@@ -27,8 +47,9 @@ function RatingMeter() {
               text-medium-grey
               hover:bg-light-grey
               hover:text-white
-            ">
-            {rating}
+            "
+          >
+            {rating.meter}
           </button>
         )
       })}
