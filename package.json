@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "npm": "please-use-yarn",
-    "yarn": "^1.22.19"
+    "yarn": "^1.22.17"
   },
  "scripts": {
     "dev": "concurrently \"next dev --turbo\" \"tailwindcss -i styles/globals.css -o styles/dist.css -w\"",
