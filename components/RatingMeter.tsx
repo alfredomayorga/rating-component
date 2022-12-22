@@ -2,15 +2,20 @@
 
 import { useState } from 'react'
 import { useSelectedRating } from '../hooks/useSelectedRating'
-interface RatingMeterProps {
-  setRatingSelected: (ratingSelected: boolean)=> void
-}
+import { useContext } from 'react'
+import {
+  selectionContext,
+  SelectionContextValues,
+} from '../context/selectionContext'
 export type Rating = {
   meter: number
   active: boolean
 }
 
-function RatingMeter({setRatingSelected}: RatingMeterProps) {
+function RatingMeter() {
+  const { setRatingSelected } = useContext(
+    selectionContext
+  ) as SelectionContextValues
   const { setSelectedRating, ratings } = useSelectedRating()
   return (
     <div
@@ -31,8 +36,9 @@ function RatingMeter({setRatingSelected}: RatingMeterProps) {
               setRatingSelected(true)
             }}
             style={{
-              backgroundColor: rating.active === true ? "#FC7614" : '',
-              color: 'white'
+              backgroundColor:
+                rating.active === true ? '#FC7614' : '',
+              color: 'white',
             }}
             className="
               rounded-full

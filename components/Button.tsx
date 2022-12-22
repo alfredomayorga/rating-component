@@ -1,16 +1,21 @@
 'use client'
 import { useSelectedRating } from '../hooks/useSelectedRating'
-interface ButtonProps {
-  ratingSelected: boolean
-}
-function Button({ratingSelected}: ButtonProps) {
+import {
+  selectionContext,
+  SelectionContextValues,
+} from '../context/selectionContext'
+import { useContext } from 'react'
+function Button() {
   const { selectedRating, ratings } = useSelectedRating()
-  console.log(ratingSelected, 'BUTTON')
+  const { setFormSubmitted, ratingSelected } = useContext(
+    selectionContext
+  ) as SelectionContextValues
   return (
     <button
+      onClick={() => setFormSubmitted(true)}
       style={{
         opacity: !ratingSelected ? 0.5 : 1,
-        pointerEvents: !ratingSelected ? 'none' : 'all'
+        pointerEvents: !ratingSelected ? 'none' : 'all',
       }}
       className="
         bg-orange 

@@ -2,14 +2,27 @@
 import HeroText from './HeroText'
 import RatingMeter from './RatingMeter'
 import Button from './Button'
-import { useState } from 'react'
+import { useContext } from 'react'
+import SubmitScreen from './SubmitScreen'
+import {
+  selectionContext,
+  SelectionContextValues,
+} from '../context/selectionContext'
 function Content() {
-  const [ratingSelected, setRatingSelected] = useState<boolean>(false)
+  const { formSubmitted } = useContext(
+    selectionContext
+  ) as SelectionContextValues
   return (
     <>
-      <HeroText />
-      <RatingMeter setRatingSelected={setRatingSelected} />
-      <Button ratingSelected={ratingSelected} />
+      {!formSubmitted ? (
+        <>
+          <HeroText />
+          <RatingMeter />
+          <Button />
+        </>
+      ) : (
+        <SubmitScreen />
+      )}
     </>
   )
 }
